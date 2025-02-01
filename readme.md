@@ -20,3 +20,4 @@ npm install swagger-ui-express
 npm install helmet
 npm install express-auto-routes
 npm install sqlite3 --save
+npm install pg express dotenv

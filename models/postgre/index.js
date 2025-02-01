@@ -11,7 +11,6 @@ class tb_trd_model{
   constructor(attributes) {
     this.attributes = attributes
     this.db = db
-    //this.tableName = TB_TRD
   }
 
   /*static attributeLabels() {

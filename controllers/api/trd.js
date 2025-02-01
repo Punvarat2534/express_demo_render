@@ -1,8 +1,9 @@
-﻿const db = require('../../cores/db');
+﻿const knex = require('../../cores/db');
 
 exports.all = async (req, res) => {
   try {
-    const result = await db('ICGROUP').select();
+    //const result = knex('ICGROUP').select();
+    const result = await knex.select('*').from('EMUSER');
     res.send(result);
   } catch (err) {
     console.error(err);
