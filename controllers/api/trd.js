@@ -2,7 +2,6 @@
 
 exports.all = async (req, res) => {
   try {
-    //const result = knex('ICGROUP').select();
     const result = await knex.select('*').from('EMUSER');
     res.send(result);
   } catch (err) {
