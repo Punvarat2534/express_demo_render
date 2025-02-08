@@ -1,25 +1,10 @@
-﻿require("dotenv").config()
-
-const fs = require('fs');
-const pg = require('pg');
-const url = require('url');
-
-const config = {
-  user: "sa",
-  password: "1/sasql64",
-  host: "k2mpg.ddns.net",
-  port: 5432,
-  database: "dbnap",
-};
-
-const client = new pg.Client(config);  
-client.connect(); 
+﻿const client = require("../../cores/config/db");
+require("dotenv").config()
 
 exports.all = async (req, res) => {
   try {
     const result =await client.query('SELECT * from  public."EMUSER"');
-    //console.log(result)
-    res.send(result);
+    res.send(result.rows);
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
