@@ -1,4 +1,4 @@
-﻿var express = require('express');  
+﻿/*var express = require('express');  
 var app = express();  
 const port = 3001;
 const createError = require("http-errors");
@@ -8,7 +8,6 @@ const logger = require("morgan");
 const helmet = require("helmet");
 const path = require('path');
 const cors = require('cors');
-
 var bodyParser = require('body-parser');
 app.use(express.json());
 app.use(bodyParser.json());
@@ -18,6 +17,17 @@ const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 20,
 });
+
+const PasswordGeneratorService = require("./controllers/api/pwd");
+//const passwordGeneratorService = new PasswordGeneratorService();
+
+//app.get('/generate-password',passwordGeneratorService.generate());
+app.get("/generate-password", (req, res) => {
+  const passwordGeneratorService = new PasswordGeneratorService();
+  const password = passwordGeneratorService.generate();
+  //res.send(`Your new password is: ${password}`);
+});
+
 
 app.use(cors({ origin: "http://localhost:3000" }));
 
@@ -73,4 +83,13 @@ app.listen(port, () => {
 });
 
 
-module.exports = app;
+module.exports = app;*/
+
+import express from 'express';
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("hello");
+});
+
+app.listen(80);

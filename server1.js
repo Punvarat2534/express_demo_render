@@ -1,7 +1,4 @@
-﻿require("dotenv").config()
-const knex = require("knex");
-
-const fs = require('fs');
+﻿const fs = require('fs');
 const pg = require('pg');
 const url = require('url');
 
@@ -43,27 +40,7 @@ Kw==
 };
 
 const client = new pg.Client(config);
-
-/*client.connect(function (err) {
-  if (err)
-      throw err;
-  client.query("SELECT VERSION()", [], function (err, result) {
-      if (err)
-          throw err;
-
-      console.log(result.rows[0].version);
-      client.end(function (err) {
-          if (err)
-              throw err;
-      });
-  });
-});*/
-
-module.exports = client;
-
-
-
-/*client.connect(function (err) {
+client.connect(function (err) {
     if (err)
         throw err;
     client.query("SELECT VERSION()", [], function (err, result) {
@@ -76,67 +53,4 @@ module.exports = client;
                 throw err;
         });
     });
-});*/
-
-/*module.exports = {
-  client: "pg",
-  development: {
-    client: "pg",
-    connection: {
-        host: "k2mpg.ddns.net",
-        user: "sa",
-        password: "1/sasql64",
-        database: "dbnap",
-    },
-  }
-};*/
-
-
-/*module.exports = {
-  client: "pg",
-  development: {
-    client: "pg",
-    connection: {
-        host: "pg-3e37dcf6-punvarat-7a2d.f.aivencloud.com",
-        user: "avnadmin",
-        password: "AVNS_Hixl4QGVux30Kz0mZrI",
-        database: "napdb",
-        port:"22067"
-    },
-  }
-};*/
-
-
-/*module.exports = {
-  development: {
-    client: "pg",
-    connection: process.env.DATABASE_URI,
-    migrations: {
-      directory: "./db/migrations",
-    }
-  }
-};*/
-
-/*const dbs = knex({
-  client: 'pg',
-  connection: {
-    host: "k2mpg.ddns.net",
-    port: "5432",
-    user: "sa",
-    database:"dbnap",
-    password:"1/sasql64",
-  },
-});*/
-
-/*const pg = require('knex')({
-  client: 'pg',
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    //ssl: config['DB_SSL'] ? { rejectUnauthorized: false } : false,
-  },
-});*/
+});

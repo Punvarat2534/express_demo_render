@@ -1,8 +1,24 @@
-﻿const knex = require('../../cores/db');
+﻿require("dotenv").config()
+
+const fs = require('fs');
+const pg = require('pg');
+const url = require('url');
+
+const config = {
+  user: "sa",
+  password: "1/sasql64",
+  host: "k2mpg.ddns.net",
+  port: 5432,
+  database: "dbnap",
+};
+
+const client = new pg.Client(config);  
+client.connect(); 
 
 exports.all = async (req, res) => {
   try {
-    const result = await knex.select('*').from('EMUSER');
+    const result =await client.query('SELECT * from  public."EMUSER"');
+    //console.log(result)
     res.send(result);
   } catch (err) {
     console.error(err);
